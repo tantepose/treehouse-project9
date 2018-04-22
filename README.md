@@ -1,5 +1,6 @@
-##Project 9
-#Create a Gallery App with React
+## Treehouse Fullstack Javascript Techdegree, Project #9
+# Create a Gallery App with React
+## by Ole Petter Baugerød Stokke
 
 In this project, you'll build an image gallery using React and the Flickr API. After creating the project with create-react-app, you will build the gallery components, write the CSS and set up routing.
 
