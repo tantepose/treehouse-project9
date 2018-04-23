@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+
 import ImageList from './Components/ImageList';
+import Search from './Components/Search';
 
 class App extends Component {
 
   state = {
-    messages: ['hei sveis', 'hehe', 'jaja']
+    messages: ['Husk å ta med voks.', 'Si fra til pappa om mamma.', 'Vær det beste du kan være.']
   }
 
   render() {
     return (
-      <div className="App">
-        <h1>Hallo!</h1>
+      <div className='App'>
+        <Search />
         <ImageList 
           messages = {this.state.messages} />
       </div>

@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const Image = props => {
-    return (
-    <div>
-        <h2> {props.message} </h2>
-    </div>
-    );
-}
+const Image = props => 
+    <li> Beskjed: {props.message} </li>
 
 export default Image;

@@ -3,13 +3,15 @@ import Image from './Image';
 
 const ImageList = props => {
     return (
-    <div>
-        <h1> NÅ KOMMER BESKJEDENE HER: </h1>
-        {props.messages.map(message => 
-            <Image 
-                message={message}
-            />
-        )} 
+    <div className='ImageList'>
+        <h2> Beskjeder: </h2>
+        <ul>
+            {props.messages.map(message => 
+                <Image 
+                    message={message}
+                />
+            )} 
+        </ul>
     </div>
     );
 }
