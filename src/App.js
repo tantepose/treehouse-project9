@@ -1,70 +1,55 @@
-import React, { Component } from 'react';
-// import { BrowserRouter, Route } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react';
+import {
+  BrowserRouter,
+  Route,
+  Switch
+} from 'react-router-dom';
 
-// importing apiKey from required, private config.js file
-import apiKey from './config';
-
-// importing components
-import ImageList from './Components/ImageList';
+// App components
 import Search from './Components/Search';
+import Results from './Components/Results';
+import NotFound from './Components/NotFound';
 
-// main wrapper container
-class App extends Component {
-
-  // set initial state
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      images: [],
-      loading: true,
-      query: ''
-    }
-  }
-
-  // do a search on startup
-  componentDidMount() {
-    this.doSearch('dikdik');
-  }
-
-  // the search function
-  doSearch = (query) => {
-    const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=16&format=json&nojsoncallback=1`;
-
-    axios.get(url) //make the request
-    .then(response => { //set new state if it success
-      this.setState({
-        query: query,
-        images: response.data.photos.photo,
-        loading: false
-      })
-    })
-
-    .catch(error => { //catch error if it fails
-      console.log('FEIL! med parsing data:', error);
-    });
-  }
-
-  // rendering the whole app
-  render() {
-    return (
-      <div className='App'>
-        <Search />
-
-          { (this.state.loading) //is it loading?
-              ? <p>Loading images...</p> //yes: display loading message
-              : <ImageList images = {this.state.images} /> //no: display images
-          }
-
-        <button 
-          onClick={this.doSearch}>
-          Search
-        </button>
-
-      </div>
-    );
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <div className="container">
+      <Switch>
+        <Route exact path="/" component={Results} />
+        <Route exact path="/search" component={Search} />
+        <Route path="/search/:query" component={Results} />
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  </BrowserRouter>
+);
 
 export default App;
+
+/* 
+
+OOOOOOK:
+
+search/
+-> Search, med ingenting
+
+search/query 
+-> Results, med søk på query
+kan i utgangspunktet bare druse ut results-comp med riktig data
+men hva da når du går direkte inn på en route for å søke?
+derfor må søkegreia ligge i results, hvor routen tas ut som query
+og Search bare lage en route, for å starte søket på den route
+
+m.a.o: 
+Search bare som tom greie for å sende videre til Results
+all søk inni Results
+
+kan også ha all logikk i app.js, og sende den videre til results, da
+"A container component that takes in a keyword and api key as props, 
+and fetches the photos and other required information from the API"
+
+
+<Route path="/about" render = { () => <About title='About' /> } />
+        <Route exact path="/teachers" component={Teachers} />
+        <Route path="/teachers/:topic/:name" component={Featured} />
+        <Route path="/courses" component={Courses} />
+*/
