@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Image from './Image';
 
 const ImageList = props => {
+    const images = props.images;
+
     return (
     <div className='ImageList'>
-        <h2> Beskjeder: </h2>
-        <ul>
-            {props.messages.map(message => 
+        {images.map(image => 
                 <Image 
-                    message={message}
+                    image={image}
                 />
             )} 
-        </ul>
     </div>
     );
 }
