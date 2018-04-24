@@ -53,7 +53,7 @@ class App extends Component {
         <Search />
 
           { (this.state.loading) //is it loading?
-              ? <p>Loading images...</p> //yes: display loading message
+              ? <p>Loading images, bitches...</p> //yes: display loading message
               : <ImageList images = {this.state.images} /> //no: display images
           }
 
