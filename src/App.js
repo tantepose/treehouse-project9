@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   BrowserRouter,
   Route,
@@ -6,50 +6,45 @@ import {
 } from 'react-router-dom';
 
 // App components
-import Search from './Components/Search';
-import Results from './Components/Results';
 import NotFound from './Components/NotFound';
+import Category1 from './Components/Categories/Category1';
+import Category2 from './Components/Categories/Category2';
+import Category3 from './Components/Categories/Category3';
+import Home from './Components/Home';
 
-const App = () => (
-  <BrowserRouter>
-    <div className="container">
-      <Switch>
-        <Route exact path="/" component={Results} />
-        <Route exact path="/search" component={Search} />
-        <Route path="/search/:query" component={Results} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
-  </BrowserRouter>
-);
+// main app class for routing
+class App extends Component {
+
+  render() {
+    return(
+      <BrowserRouter>
+        <div className="container">
+          <Switch>
+
+            <Route exact path='/' render={(props) => (
+              <Home  
+                query="giraffe"
+            />)}/>
+
+            <Route exact path='/search' render={(props) => (
+              <Home 
+                query="giraffe"
+            />)}/>
+
+            <Route path='/search/:query' render={(props) => (
+              <Home {...props} 
+            />)}/>
+
+            <Route path="/category/1" component={Category1} />
+            <Route path="/category/2" component={Category2} />
+            <Route path="/category/3" component={Category3} />
+
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
 
 export default App;
-
-/* 
-
-OOOOOOK:
-
-search/
--> Search, med ingenting
-
-search/query 
--> Results, med søk på query
-kan i utgangspunktet bare druse ut results-comp med riktig data
-men hva da når du går direkte inn på en route for å søke?
-derfor må søkegreia ligge i results, hvor routen tas ut som query
-og Search bare lage en route, for å starte søket på den route
-
-m.a.o: 
-Search bare som tom greie for å sende videre til Results
-all søk inni Results
-
-kan også ha all logikk i app.js, og sende den videre til results, da
-"A container component that takes in a keyword and api key as props, 
-and fetches the photos and other required information from the API"
-
-
-<Route path="/about" render = { () => <About title='About' /> } />
-        <Route exact path="/teachers" component={Teachers} />
-        <Route path="/teachers/:topic/:name" component={Featured} />
-        <Route path="/courses" component={Courses} />
-*/

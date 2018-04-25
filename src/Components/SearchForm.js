@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 
 class SearchForm extends Component {
 
-    // set initial state
-    state = { 
-        query: ''
-    }
-
     // on form submit
     handleSubmit = e => {
-        console.log('SEARCH CLICKED');
+        console.log('SEARCH CLICKED', this.query.value);
+        console.log('props?', this.props)
         e.preventDefault();
-        this.props.onSearch(this.query.value);
-        e.currentTarget.reset();
+        //this.props.history.push("path/to/push");
+
+        // this.props.onSearch(this.query.value);
+        // e.currentTarget.reset();
     }
 
     // rendering component

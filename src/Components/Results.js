@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-// import { BrowserRouter, Route } from 'react-router-dom';
 import axios from 'axios';
 
-// importing apiKey from required, private config.js file
-import apiKey from '../../config';
-
-// importing app components
-import ImageList from '../Results/ImageList';
-import SearchForm from '../Search/SearchForm';
-import Links from '../Search/Links';
+import apiKey from '../config';
+import ImageList from './ImageList';
 
 // main wrapper container
-class Search extends Component {
+class Results extends Component {
 
   // set initial state
   constructor(props) {
@@ -24,16 +18,24 @@ class Search extends Component {
     }
   }
 
-  // do a search on startup
+  // do search when component mounts
   componentDidMount() {
-    this.doSearch('dikdik');
+    //get query from route or prop? (search or predefined category)
+    let newQuery = "";
+    if (this.props.query) { // burde vel sette state i stedet?
+      newQuery = this.props.query;
+    } else {
+      newQuery = this.props.match.params.query;
+    }
+
+    this.doSearch(newQuery);
   }
 
   // the search function
   doSearch = (query) => {
     console.log('SEARCHING FOR:', query);
-    const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=16&format=json&nojsoncallback=1`;
-
+    const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=9&format=json&nojsoncallback=1`;
+    
     // make the request
     axios.get(url) 
     .then(response => { //set new state if it success
@@ -43,28 +45,24 @@ class Search extends Component {
         isLoading: false
       })
     })
-
-    // catch error if it fails
+    
+    // catch any errors
     .catch(error => { 
       console.log('FEIL! med parsing data:', error);
     });
   }
 
-  // rendering the whole app
+  // render "loading" / results
   render() {
     return (
-      <div className='App'>
-        <SearchForm onSearch = {this.doSearch}/>
-        <Links />
-
+      <div className='search-results'>
         { (this.state.isLoading) //is the app loading?
             ? <p>Loading images...</p> //yes: display loading message
             : <ImageList images = {this.state.images} query={this.state.query} /> //no: display images
         }
-
       </div>
     );
   }
 }
 
-export default Search;
+export default Results;
