@@ -4,6 +4,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+import './Styles/App.css';
 
 // App components
 import NotFound from './Components/NotFound';
@@ -18,7 +19,7 @@ class App extends Component {
   render() {
     return(
       <BrowserRouter>
-        <div className="container">
+        <div className="App">
           <Switch>
 
             <Route exact path='/' render={(props) => (

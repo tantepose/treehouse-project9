@@ -23,11 +23,12 @@ class SearchForm extends Component {
                         type="search" 
                         id="search-input"
                         ref={ (input) => this.query = input }
-                        placeholder="Search..." />
+                        placeholder="Search..."
+                        required />
                     <button 
                         type="submit" 
                         id="search-button" >
-                        search
+                        <span role="img" aria-label="search">🔎</span>
                     </button>
             </form>
         )    

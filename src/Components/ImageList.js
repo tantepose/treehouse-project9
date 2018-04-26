@@ -20,12 +20,14 @@ const ImageList = props => {
 
     // render the results
     return(
-        <div className="image-list">
+        <div className="Results">
             {(images.length>0) 
                 ? <h2>Images of {props.query}</h2>
                 : ""
             }
-            {output}
+            <div className="Image-List">
+                {output}
+            </div>
         </div> 
     );
 }
