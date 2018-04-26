@@ -56,9 +56,11 @@ class Results extends Component {
   render() {
     return (
       <div className='search-results'>
-        { (this.state.isLoading) //is the app loading?
-            ? <p>Loading images...</p> //yes: display loading message
-            : <ImageList images = {this.state.images} query={this.state.query} /> //no: display images
+        { (this.state.isLoading) 
+            ? <p>Loading images... <span role="img" aria-label="search">✨</span></p> 
+            : <ImageList 
+              images = {this.state.images} 
+              query={this.state.query} />
         }
       </div>
     );

@@ -1,0 +1,95 @@
+.App {
+  margin-top: 30px;
+  margin-right: 10%;
+  margin-left: 10%;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+
+/* SearchForm */
+
+.search-form {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-form button {
+  background-color: #438bbd;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.search-form button:hover {
+  background-color: #527a97;
+}
+
+.search-form input {
+  background-color: #edeff0;
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid #d7dbdf;
+  border-radius: 5px;
+}
+
+/* Links */
+
+.links {
+  margin: 40px;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  background-color: #438bbd;
+  margin: 10px;
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
+}
+
+.links a:hover {
+  background-color: #527a97;
+}
+
+.links ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.links .active {
+  background-color: #0a4670;
+}
+
+/* Results */
+
+.images {
+  margin-top: 0px;
+}
+
+.images ul {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.images img {
+  margin: 20px;
+  width:auto;
+  height:auto;
+  max-height:300px;
+  max-width:300px;
+}
+
+/* NotFound */
+
+.not-found {
+  text-align: center;
+  font-size: 3em;
+}

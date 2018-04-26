@@ -18,16 +18,16 @@ const ImageList = props => {
         output = <NoMatch />;
     }
 
-    // render the results
+    // render the results (with title if matches)
     return(
-        <div className="Results">
-            {(images.length>0) 
+        <div className="images">
+            {(images.length > 0) 
                 ? <h2>Images of {props.query}</h2>
                 : ""
             }
-            <div className="Image-List">
+            <ul>
                 {output}
-            </div>
+            </ul>
         </div> 
     );
 }

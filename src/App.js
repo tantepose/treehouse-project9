@@ -4,7 +4,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import './Styles/App.css';
+import './CSS/App.css';
 
 // App components
 import NotFound from './Components/NotFound';
@@ -23,18 +23,16 @@ class App extends Component {
           <Switch>
 
             <Route exact path='/' render={(props) => (
-              <Home  
-                query="giraffe"
-            />)}/>
+              <Home query="Lego"/>)
+            }/>
 
             <Route exact path='/search' render={(props) => (
-              <Home 
-                query="giraffe"
-            />)}/>
+              <Home query="Lego"/>)
+            }/>
 
             <Route path='/search/:query' render={(props) => (
-              <Home {...props} 
-            />)}/>
+              <Home {...props} />)
+            }/>
 
             <Route path="/category/1" component={Category1} />
             <Route path="/category/2" component={Category2} />
