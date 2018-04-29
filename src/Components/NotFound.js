@@ -4,7 +4,8 @@ const NotFound = () => (
   <div class="not-found">
     <div className="center">
       <h1>Uffda! <span role="img" aria-label="search">😥</span></h1>
-      <p>404 - page not found.</p>
+      <p>Path «{window.location.pathname}» not found.</p>
+      <p></p>
     </div>
   </div>
 );

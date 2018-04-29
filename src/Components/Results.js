@@ -4,7 +4,6 @@ import axios from 'axios';
 import apiKey from '../config';
 import ImageList from './ImageList';
 
-// main wrapper container
 class Results extends Component {
 
   // set initial state
@@ -18,17 +17,22 @@ class Results extends Component {
     }
   }
 
-  // do search when component mounts
+  // do a search when component mounts
   componentDidMount() {
-    //get query from route or prop? (search or predefined category)
-    let newQuery = "";
+    // get query from route or prop? (as in search or predefined category)
+
+    // this.props.query
+    //   ? this.setState({query: this.props.query})
+    //   : this.setState({query: this.props.match.params.query})
+
     if (this.props.query) { // burde vel sette state i stedet?
-      newQuery = this.props.query;
+      this.state.query = this.props.query;
     } else {
-      newQuery = this.props.match.params.query;
+      this.state.query = this.props.match.params.query;
     }
 
-    this.doSearch(newQuery);
+    this.doSearch(this.state.query);
+    document.title = "Images of " + this.state.query;
   }
 
   // the search function
@@ -48,7 +52,7 @@ class Results extends Component {
     
     // catch any errors
     .catch(error => { 
-      console.log('FEIL! med parsing data:', error);
+      console.log('Error parsing data:', error);
     });
   }
 
@@ -57,7 +61,7 @@ class Results extends Component {
     return (
       <div className='search-results'>
         { (this.state.isLoading) 
-            ? <p>Loading images... <span role="img" aria-label="search">✨</span></p> 
+            ? <h1>Loading images... <span role="img" aria-label="search">✨</span></h1> 
             : <ImageList 
               images = {this.state.images} 
               query={this.state.query} />

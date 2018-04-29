@@ -22,7 +22,7 @@ const ImageList = props => {
     return(
         <div className="images">
             {(images.length > 0) 
-                ? <h2>Images of {props.query}</h2>
+                ? <h1>Images of {props.query}</h1>
                 : ""
             }
             <ul>

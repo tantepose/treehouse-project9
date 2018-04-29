@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 
 class SearchForm extends Component {
 
-    // on form submit
+    // on form submit; redirect to search route with query
     handleSubmit = e => {
-        console.log('SEARCH CLICKED', this.query.value);
-        console.log('props?', this.props)
         e.preventDefault();
-        //this.props.history.push("path/to/push");
-
-        // this.props.onSearch(this.query.value);
-        // e.currentTarget.reset();
+        const newRoute = '/search/' + this.query.value;
+        window.open(newRoute, '_self');
     }
 
     // rendering component
