@@ -3,7 +3,7 @@ import SearchForm from './SearchForm';
 import Links from './Links';
 import Results from './Results';
 
-// main component for root and /search/ route, displaying search bar and results
+// main component for root and /search/ route, displaying search bar, links and results
 const Home = props => 
     <div className="home">
         <SearchForm />

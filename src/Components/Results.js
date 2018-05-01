@@ -32,7 +32,6 @@ class Results extends Component {
 
   // the search, using Axios to query the Flickr API
   doSearch = (query) => {
-
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=9&format=json&nojsoncallback=1`;    
     axios.get(url) 
     .then(response => {
