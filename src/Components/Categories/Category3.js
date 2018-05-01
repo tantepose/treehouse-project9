@@ -6,7 +6,7 @@ import Links from '../Links';
 const Category3 = () => (
   <div>
     <Links />
-    <Results query="oslo" />
+    <Results query="Oslo" />
     <a href="/search">Back to search</a>
   </div>
 );
