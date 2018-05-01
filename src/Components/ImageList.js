@@ -6,25 +6,22 @@ const ImageList = props => {
     const images = props.images;
     let output;
 
-    // matches? show them
+    // matches? render them
     if (images.length > 0) {
         output = images.map(image => 
             <Image image={image} key={image.id} />
         );
     } 
 
-    // no matches? show no match message
+    // no matches? render NoMatch component
     else {
         output = <NoMatch />;
     }
 
-    // render the results (with title if matches)
+    // render the results
     return(
         <div className="images">
-            {(images.length > 0) 
-                ? <h1>Images of {props.query}</h1>
-                : ""
-            }
+            <h1>Images of {props.query}:</h1>
             <ul>
                 {output}
             </ul>
