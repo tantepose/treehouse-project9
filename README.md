@@ -2,7 +2,7 @@
 # Create a Gallery App with React
 ## by Ole Petter Baugerød Stokke
 
-Requires a Config.js-file with API credencials:
+Requires a /src/Config.js-file with API credencials:
 ```javascript
 const apiKey = 'XXX';
 export default apiKey;

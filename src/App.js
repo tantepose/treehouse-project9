@@ -6,22 +6,19 @@ import {
 } from 'react-router-dom';
 import './CSS/App.css';
 
-// App components
-import NotFound from './Components/NotFound';
+import Home from './Components/Home';
 import Category1 from './Components/Categories/Category1';
 import Category2 from './Components/Categories/Category2';
 import Category3 from './Components/Categories/Category3';
-import Home from './Components/Home';
+import NotFound from './Components/NotFound';
 
 // main app class for routing
 class App extends Component {
-
   render() {
     return(
       <BrowserRouter>
         <div className="App">
           <Switch>
-
             <Route exact path='/' render={(props) => (
               <Home query="Lego"/>)
             }/>

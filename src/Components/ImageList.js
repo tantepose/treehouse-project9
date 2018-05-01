@@ -2,6 +2,7 @@ import React from 'react';
 import Image from './Image';
 import NoMatch from './NoMatch';
 
+// component composing the list of images
 const ImageList = props => {
     const images = props.images;
     let output;
@@ -18,7 +19,7 @@ const ImageList = props => {
         output = <NoMatch />;
     }
 
-    // render the results
+    // output results
     return(
         <div className="images">
             <h1>Images of {props.query}:</h1>

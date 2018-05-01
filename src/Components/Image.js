@@ -1,5 +1,6 @@
 import React from 'react';
 
+// component displaying each image
 const Image = props => 
     <li>
         <img 

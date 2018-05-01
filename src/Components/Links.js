@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// component for the list of categories
 const Links = () => (
   <div className="links">
     <ul>

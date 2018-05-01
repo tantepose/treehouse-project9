@@ -1,5 +1,6 @@
 import React from 'react';
 
+// 404 component
 const NotFound = () => (
   <div class="not-found">
     <div className="center">

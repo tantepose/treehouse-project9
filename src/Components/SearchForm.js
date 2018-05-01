@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
+// component for the search form
 class SearchForm extends Component {
-
-    // on form submit; redirect to search route with query
+    // on form submit; redirect to /search/query route
     handleSubmit = e => {
         e.preventDefault();
         const newRoute = '/search/' + this.query.value;

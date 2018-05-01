@@ -1,8 +1,8 @@
 import React from 'react';
-
 import Results from '../Results';
 import Links from '../Links';
 
+// custom category component from Links list
 const Category2 = () => (
   <div>
     <Links />
